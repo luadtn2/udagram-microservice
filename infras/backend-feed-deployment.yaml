@@ -16,9 +16,17 @@ spec:
     spec:
       containers:
       - name: udagram-api-feed
-        image: yukukaru23/udagram-api-feed
+        image: yukukaru23/udagram-api-feed:latest
         ports:
         - containerPort: 80
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "2048Mi"
+            cpu: "500m"   
         env:
           - name: POSTGRES_HOST
             valueFrom:
